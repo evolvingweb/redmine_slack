@@ -18,7 +18,7 @@ class Slack
     if trim_size.positive?
       loop do
         msg = msg[0..trim_size]
-        break unless /^.* (http[A-Za-z\.\d\/\:]*)$/.match(msg)
+        break unless /^.* (https?:\/\/[A-Za-z\.\d\/\:_\-\&\%\#\!]+)$/.match(msg)
         break if msg == original_msg
         # Restore original message and try again.
         msg = original_msg
